@@ -1,0 +1,163 @@
+.ks-blog-card {
+  &:hover .thumbnail > .tag > .image {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+  }
+
+  > .thumbnail {
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  > .thumbnail > .tag > .image {
+    transition: all 0.3s ease;
+  }
+
+  > .thumbnail > .poster {
+    @include position(absolute, 0, null, null, 30px);
+  }
+
+  > .thumbnail > .poster > .tag {
+    @include square(80px);
+    @include flex-center-column;
+    font-weight: $fw-medium;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $white;
+    border-radius: 0 0 5px 5px;
+    background-color: $color-primary;
+    z-index: 3;
+  }
+
+  > .thumbnail > .poster > .tag > .strong {
+    font-size: 40px;
+    font-weight: $fw-semibold;
+    display: block;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  > .content {
+    margin-bottom: 17px;
+  }
+
+  > .content > .meta {
+    @include flex-center-ver;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: $fw-semibold;
+    line-height: 1.3;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  > .content > .meta > .tags > .tag {
+    display: inline-block;
+    color: #909090;
+    position: relative;
+    margin-bottom: 0;
+    padding-right: 22px;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  > .content > .meta > .author > .label {
+    color: #909090;
+    margin-bottom: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+  }
+
+  > .content > .meta > .author > .name {
+    color: #4a4a4a;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  > .content > .title {
+    font-size: 24px;
+    overflow: hidden;
+  }
+
+  > .content > .title > .name {
+    height: 100%;
+    color: #194a33;
+    line-height: 1.1;
+    @include truncate-multiline-new(2);
+
+    &:hover {
+      color: $color-primary;
+      cursor: pointer;
+    }
+  }
+
+  > .more > .icon {
+    font-weight: $fw-bold;
+    color: $color-success;
+    font-size: 10px;
+    margin-left: 7px;
+  }
+
+  > .more > .link {
+    display: inline-flex;
+    font-weight: $fw-bold;
+    font-size: 14px;
+    text-transform: capitalize;
+    transition: all ease 0.3s;
+    letter-spacing: 0;
+    align-items: center;
+    border-radius: 5px;
+    color: $color-success;
+    position: relative;
+
+    &:hover,
+    &:hover > .more > .link > .icon {
+      color: $color-primary;
+      fill: $color-primary;
+    }
+
+    &:hover::after {
+      width: 0px;
+    }
+  }
+
+  > .more > .link > .icon {
+    // color: $color-primary;
+    font-size: 11px;
+  }
+
+  > .more > .link {
+    display: inline-flex;
+    font-weight: $fw-bold;
+    font-size: 14px;
+    text-transform: capitalize;
+    transition: all ease 0.3s;
+    letter-spacing: 0;
+    align-items: center;
+    border-radius: 5px;
+    color: $color-success;
+    position: relative;
+
+    &:hover,
+    &:hover > .more > .link > .icon {
+      color: $color-primary;
+      fill: $color-primary;
+    }
+
+    &:hover::after {
+      width: 0px;
+    }
+  }
+
+  > .more > .link > .underline::after {
+    height: 1px;
+  }
+}
