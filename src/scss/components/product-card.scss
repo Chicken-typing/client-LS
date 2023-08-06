@@ -1,9 +1,21 @@
 .ks-product-card {
+  @include flex-column;
   background: #f6f6f6;
   max-width: 100%;
   margin: auto;
   user-select: none;
+  overflow: hidden;
+  border-radius: 5px;
+  height: 100%;
+  border: 1px solid transparent;
 
+  &:hover {
+    border: 1px solid #e0e0e0;
+  }
+
+  &:hover > .thumbnail > .actions {
+    @include visible;
+  }
   &:hover > .content > .buy > .button {
     background-color: $color-primary;
   }
@@ -15,7 +27,7 @@
     position: relative;
     aspect-ratio: 1;
     overflow: hidden;
-    height: auto;
+    flex-shrink: 0;
   }
 
   > .thumbnail > .images {
@@ -37,6 +49,15 @@
   &:hover > .thumbnail > .images > .image {
     &.-secondary {
       transform: scale(1.1);
+    }
+  }
+
+  &:hover > .thumbnail > .images > .image {
+    &.-main {
+      @include hidden;
+    }
+    &.-secondary {
+      @include visible;
     }
   }
 
@@ -64,10 +85,10 @@
     @include position(absolute, 10%, 15px, null, null);
     transition: 0.3s;
     gap: 6px;
+    @include hidden;
   }
 
   > .thumbnail > .actions > .button {
-    @include hidden;
     background: $white;
     @include flex-center;
     @include circle(44px);
@@ -92,15 +113,6 @@
     box-sizing: border-box;
   }
 
-  &:hover > .thumbnail > .images > .image {
-    &.-main {
-      @include hidden;
-    }
-    &.-secondary {
-      @include visible;
-    }
-  }
-
   > .content > .rating {
     gap: 4px;
     font-size: 12px;
@@ -120,6 +132,7 @@
     line-height: 1.25;
     position: relative;
     padding: 17px 30px 25px;
+    flex: 1;
   }
 
   > .content > .name {
@@ -128,40 +141,43 @@
     margin-bottom: 8px;
     line-height: 1;
     font-weight: $fw-semibold;
+    overflow: hidden;
+
     &:hover {
       color: $color-primary;
     }
   }
 
   > .content > .name > .link {
+    @include truncate-multiline-new(2);
     color: $color-success;
-    padding-right: 40px;
-    max-height: 40px;
+
     &:hover {
       color: $color-primary;
     }
   }
 
-  > .content > .buy {
-    @include position(absolute, null, 20px, 20px, null);
+  > .content > .footer {
+    @include flex-center-ver;
+    justify-content: space-between;
+    margin-right: -10px;
+    margin-top: auto;
   }
 
-  > .content > .buy > .button {
+  > .content > .footer > .buy > .button {
     @include flex-center;
     @include circle(44px);
   }
 
-  > .content > .buy > .button > .icon {
+  > .content > .footer > .buy > .button > .icon {
     @include flex-center;
-    color: $black;
     @include square(18px);
     font-size: 16px;
     line-height: 16px;
-    font-weight: $fw-bold;
     box-sizing: border-box;
   }
 
-  > .content > .price {
+  > .content > .footer > .price {
     font-family: $font-family;
     font-size: 16px;
     line-height: 1.5;
@@ -169,15 +185,15 @@
     font-weight: $fw-normal;
   }
 
-  > .content > .price > .normal {
+  > .content > .footer > .price > .normal {
     color: $black;
   }
 
-  > .content > .price > .new {
+  > .content > .footer > .price > .new {
     color: $color-danger;
   }
 
-  > .content > .price > .old {
+  > .content > .footer > .price > .old {
     text-decoration-line: line-through;
   }
 }

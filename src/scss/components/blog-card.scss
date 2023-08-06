@@ -1,9 +1,4 @@
 .ks-blog-card {
-  &:hover .thumbnail > .tag > .image {
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-  }
-
   > .thumbnail {
     position: relative;
     margin-bottom: 20px;
@@ -49,6 +44,7 @@
     @include flex-center-ver;
     flex-wrap: wrap;
     font-size: 12px;
+    gap: 22px;
     font-weight: $fw-semibold;
     line-height: 1.3;
     letter-spacing: 2px;
@@ -56,40 +52,18 @@
     margin-bottom: 12px;
   }
 
-  > .content > .meta > .tags > .tag {
-    display: inline-block;
-    color: #909090;
+  > .content > .meta > .tag {
     position: relative;
-    margin-bottom: 0;
-    padding-right: 22px;
-
-    &:hover {
-      color: $color-primary;
-    }
-  }
-
-  > .content > .meta > .author > .label {
-    color: #909090;
-    margin-bottom: 0;
     display: inline-block;
-    margin: 0 5px 0 0;
-  }
+    color: $color-gray-500;
 
-  > .content > .meta > .author > .name {
-    color: #4a4a4a;
     &:hover {
       color: $color-primary;
     }
   }
 
-  > .content > .title {
-    font-size: 24px;
-    overflow: hidden;
-  }
-
-  > .content > .title > .name {
-    height: 100%;
-    color: #194a33;
+  > .content > .name {
+    color: $color-success;
     line-height: 1.1;
     @include truncate-multiline-new(2);
 
@@ -99,65 +73,29 @@
     }
   }
 
-  > .more > .icon {
+  > .more > .link {
+    color: $color-success;
+    display: inline-flex;
+    font-weight: $fw-bold;
+    text-transform: capitalize;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:hover > .icon {
+      color: $color-primary;
+    }
+  }
+
+  > .more > .link > .icon {
     font-weight: $fw-bold;
     color: $color-success;
     font-size: 10px;
     margin-left: 7px;
   }
 
-  > .more > .link {
-    display: inline-flex;
-    font-weight: $fw-bold;
-    font-size: 14px;
-    text-transform: capitalize;
-    transition: all ease 0.3s;
-    letter-spacing: 0;
-    align-items: center;
-    border-radius: 5px;
-    color: $color-success;
-    position: relative;
-
-    &:hover,
-    &:hover > .more > .link > .icon {
-      color: $color-primary;
-      fill: $color-primary;
-    }
-
-    &:hover::after {
-      width: 0px;
-    }
-  }
-
-  > .more > .link > .icon {
-    // color: $color-primary;
-    font-size: 11px;
-  }
-
-  > .more > .link {
-    display: inline-flex;
-    font-weight: $fw-bold;
-    font-size: 14px;
-    text-transform: capitalize;
-    transition: all ease 0.3s;
-    letter-spacing: 0;
-    align-items: center;
-    border-radius: 5px;
-    color: $color-success;
-    position: relative;
-
-    &:hover,
-    &:hover > .more > .link > .icon {
-      color: $color-primary;
-      fill: $color-primary;
-    }
-
-    &:hover::after {
-      width: 0px;
-    }
-  }
-
-  > .more > .link > .underline::after {
-    height: 1px;
+  &:hover > .thumbnail > .tag > .image {
+    transform: scale(1.1);
   }
 }

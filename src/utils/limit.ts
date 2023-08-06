@@ -1,3 +1,6 @@
 export const LIMIT = {
-  BLOGS: 6,
+  HOME_PRODUCTS: 16,
+  HOME_BLOGS: 12,
+  HOME_COLLECTIONS: 3,
+  PRODUCTS_FILTER: 16,
 };

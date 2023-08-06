@@ -11,7 +11,7 @@ const request = axios.create({
 });
 
 request.interceptors.response.use(
-  (response) => response?.data?.data || response?.data || response,
+  (response) => response?.data,
   (error) => Promise.reject(error),
 );
 
