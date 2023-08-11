@@ -1,10 +1,9 @@
 import { Badge, Button, Image, Link } from '@components/primitive';
 import { Rating } from '@mui/material';
-import { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
 import { IProduct } from '@interfaces/product';
 import { routes } from '@utils/routes';
-import { Tooltip } from '@components/compound';
-import { isEmpty } from 'lodash';
+import { Tooltip } from '@components/compound/Tooltip';
 
 export interface IProductCardProps {
   data: IProduct;
@@ -13,17 +12,7 @@ export interface IProductCardProps {
 export const ProductCard: FC<IProductCardProps> = ({ data }) => {
   const { id, images, name, price, rating, discount } = data;
 
-  const [activeThumb, setActiveThumb] = useState<string>('');
-
-  useEffect(() => {
-    if (isEmpty(images)) return;
-
-    if (!images[0]) return;
-
-    if (!images[1]) return setActiveThumb(images[0]);
-
-    setActiveThumb(images[1]);
-  }, [images]);
+  const [activeThumb] = useState<string>(images[1] || images[0]);
 
   return (
     <div className="ks-product-card">
@@ -39,8 +28,8 @@ export const ProductCard: FC<IProductCardProps> = ({ data }) => {
           className="images"
         >
           <Image
-            src={!isEmpty(images) ? images[0] : ''}
-            alt={!isEmpty(images) ? images[0] : ''}
+            src={images[0]}
+            alt={images[0]}
             objectFit="cover"
             className="image -main"
             ratio="square"
@@ -52,9 +41,7 @@ export const ProductCard: FC<IProductCardProps> = ({ data }) => {
             className="image -secondary"
           />
         </Link>
-
         {discount && <Badge discount={discount} className="badge" />}
-
         <div className="actions">
           <Button className="button" iconOnly variant="contained" color="light">
             <Tooltip title="Add to wishlist" placement="left" arrow>
@@ -72,7 +59,7 @@ export const ProductCard: FC<IProductCardProps> = ({ data }) => {
             </Tooltip>
           </Button>
           <Button className="button" iconOnly variant="contained" color="light">
-            <Tooltip title="Quick View" placement="left" arrow>
+            <Tooltip title="Quick view" placement="left" arrow>
               <span className="icon">
                 <i className="fa-light fa-magnifying-glass-plus"></i>
               </span>
@@ -99,25 +86,24 @@ export const ProductCard: FC<IProductCardProps> = ({ data }) => {
             {name}
           </Link>
         </div>
+        <p className="price">
+          <span className="">
+            {price.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              minimumFractionDigits: 2,
+            })}
+          </span>
+        </p>
 
-        <div className="footer">
-          <p className="price">
-            <span className="">
-              {price.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                minimumFractionDigits: 2,
-              })}
-            </span>
-          </p>
-
-          <div className="buy">
-            <Button className="button" iconOnly variant="outlined" noBorder>
-              <Tooltip title="Select options" placement="top" arrow>
-                <i className="fa-light fa-bag-shopping icon" />
-              </Tooltip>
-            </Button>
-          </div>
+        <div className="buy">
+          <Button className="button" iconOnly variant="outlined" noBorder>
+            <Tooltip title="Select options" placement="top" arrow>
+              <span className="icon">
+                <i className="fa-light fa-bag-shopping"></i>
+              </span>
+            </Tooltip>
+          </Button>
         </div>
       </div>
     </div>

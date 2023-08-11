@@ -4,10 +4,9 @@ import { FC } from 'react';
 import { map } from 'lodash';
 import { breakpoints } from '@/utils/constants';
 import { Autoplay } from 'swiper';
-import { IProduct } from '@interfaces/product';
 
 interface IProductSlidesProps {
-  products: IProduct[];
+  products: any;
 }
 
 export const ProductSlides: FC<IProductSlidesProps> = ({ products }) => {
@@ -26,7 +25,7 @@ export const ProductSlides: FC<IProductSlidesProps> = ({ products }) => {
           },
         }}
         modules={[Autoplay]}
-        className="swiper ks-products-slides"
+        className="swiper"
         spaceBetween={30}
         autoplay={{
           delay: 5000,

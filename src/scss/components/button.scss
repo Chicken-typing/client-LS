@@ -23,7 +23,6 @@ $button-variants: (
 
       &:hover {
         background-color: $color-secondary;
-        color: $white !important;
       }
     }
 
@@ -33,8 +32,8 @@ $button-variants: (
       border: 1px solid $color;
 
       &:hover {
+        color: black;
         background-color: $color;
-        color: $white;
       }
     }
   }

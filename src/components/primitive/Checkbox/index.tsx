@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC } from 'react';
+import { ChangeEvent, FC, FocusEvent } from 'react';
 
 interface ICheckboxProps {
   id?: string;

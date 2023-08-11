@@ -9,11 +9,14 @@ interface IBlogCardProps {
 
 export const BlogCard: FC<IBlogCardProps> = ({ data }) => {
   const { name, images, tags } = data;
-
   return (
     <div className="ks-blog-card">
       <div className="thumbnail">
-        <Link className="tag" href="/" title="">
+        <Link
+          className="tag"
+          href="https://demo2.wpopal.com/teapoz/fresh-coconut-your-most-diuretic-infusion/"
+          title=""
+        >
           <Image
             src={!isEmpty(images) ? images[0] : ''}
             alt={name}
@@ -24,47 +27,47 @@ export const BlogCard: FC<IBlogCardProps> = ({ data }) => {
         </Link>
 
         <div className="poster">
-          <Link className="tag" href="/" title="" size="xs" textTransform="uppercase">
+          <Link
+            className="tag"
+            href="https://demo2.wpopal.com/teapoz/fresh-coconut-your-most-diuretic-infusion/"
+            title=""
+            size="xs"
+            textTransform="uppercase"
+          >
             <b className="strong">22</b>
             May
           </Link>
         </div>
       </div>
-
       <div className="content">
         <div className="meta">
-          {tags.length > 1 ? (
-            <Link className="tag" href="/" title="" size="xs" color="primary">
-              {map(tags, (tag, index) => {
-                if (index === 0) {
-                  return `${tag} `;
-                } else return ` & ${tag} `;
-              })}
-            </Link>
-          ) : (
-            <Link className="tag" href="/" title="" size="xs">
-              {tags[0]}
-            </Link>
-          )}
+          <div className="tags">
+            {tags.length > 1 ? (
+              <Link className="tag" href="/" title="" size="xs" color="primary">
+                {map(tags, (tag, index) => {
+                  if (index === 0) {
+                    return `${tag} `;
+                  } else return ` & ${tag} `;
+                })}
+              </Link>
+            ) : (
+              <Link className="tag" href="/" title="" size="xs">
+                {tags[0]}
+              </Link>
+            )}
+          </div>
         </div>
-
-        <Link className="name" href="/" size="lg" title="" color="secondary">
-          {name}
-        </Link>
+        <h3 className="title">
+          <Link className="name" href="/" size="lg" title="" color="secondary">
+            {name}
+          </Link>
+        </h3>
       </div>
-
       <div className="more">
-        <Link
-          href="/"
-          className="link"
-          size="sm"
-          color="black"
-          underline
-          title=""
-          rightIcon={<i className="fa-regular fa-chevron-right icon" />}
-        >
+        <Link href="/" className="link" size="sm" color="black" underline title="">
           Đọc tiếp
         </Link>
+        <i className="fa-regular fa-chevron-right icon" />
       </div>
     </div>
   );

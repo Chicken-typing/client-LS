@@ -4,6 +4,3 @@ export * from './GroupInput';
 export * from './GroupTextarea';
 export * from './ProductCard';
 export * from './ProductSlides';
-export * from './Tooltip';
-export * from './PageHeader';
-export * from './Pagination';

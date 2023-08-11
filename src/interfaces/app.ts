@@ -11,7 +11,3 @@ export interface IQueryResultList<T> {
   items: T[];
   total: number;
 }
-
-export interface IQueryResultDetail<T> {
-  data: T;
-}

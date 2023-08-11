@@ -1,5 +1,5 @@
 // Font
-$font-family: 'Teapoz', sans-serif;
+$font-family: "Rubik", sans-serif;
 
 $fs-sm: 12px;
 $fs-normal: 14px;
@@ -12,12 +12,13 @@ $fw-bold: 700;
 // Palette
 $black: #000;
 $white: #fff;
-$black-form: #333;
-$color-primary: #8cbc4f;
-$color-secondary: #648935;
-$color-success: #194a33;
+$text-color: #414141;
+$color-primary: #1891ac;
+$color-secondary: #2fb5d2; // for text color;
+$color-success: #3aa1b8;
+$color-border: #74bdcd; // use for border
 $color-danger: #e84040;
-
+$color-red: #cf0016;
 $border-color: rgb(134, 147, 156);
 $color-black-fill: #3a3f45;
 $color-gray-500: #86938d;

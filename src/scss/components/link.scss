@@ -1,11 +1,5 @@
-$colors: (
-  primary: $color-primary,
-  secondary: $color-secondary,
-  black: $black,
-  white: $white,
-);
-
 .ks-link {
+  position: relative;
   transition: all 0.3s ease;
   font-size: inherit;
   text-decoration: none;
@@ -16,8 +10,6 @@ $colors: (
   line-height: inherit;
 
   > .text {
-    position: relative;
-
     &.-underline::after {
       content: '';
       @include position(absolute, null, null, 1px, 0);
@@ -58,50 +50,41 @@ $colors: (
     font-weight: $fw-bold;
   }
 
-  @each $color, $value in $colors {
-    &.-#{$color} {
-      color: $value;
-    }
-
-    &.-#{$color} > .text.-underline::after {
-      background-color: $value;
-    }
+  &.-black {
+    color: $black;
   }
 
-  // &.-black {
-  //   color: $black;
-  // }
+  &.-white {
+    color: $white;
+  }
 
-  // &.-white {
-  //   color: $white;
-  // }
+  &.-primary {
+    color: $color-primary;
+  }
 
-  // &.-primary {
-  //   color: $color-primary;
-  // }
+  &.-secondary {
+    color: $color-secondary;
+  }
 
-  // &.-secondary {
-  //   color: $color-secondary;
-  // }
+  &.-black > .-underline::after {
+    background-color: $black;
+  }
 
-  // &.-black > .-underline::after {
-  //   background-color: $black;
-  // }
+  &.-white > .-underline::after {
+    background-color: $white;
+  }
 
-  // &.-white > .-underline::after {
-  //   background-color: $white;
-  // }
+  &.-primary > .-underline::after {
+    background-color: $color-primary;
+  }
 
-  // &.-primary > .-underline::after {
-  //   background-color: $color-primary;
-  // }
-
-  // &.-secondary > .-underline::after {
-  //   background-color: $color-secondary;
-  // }
+  &.-secondary > .-underline::after {
+    background-color: $color-secondary;
+  }
 
   &.-icon {
     @include flex-center;
+    width: 100%;
   }
 
   &:hover {
